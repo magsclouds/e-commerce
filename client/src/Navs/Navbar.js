@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-export default class Navbar extends React.Component{
+export default class Navbar extends Component{
    render(){
        return(
            <div style={styles.navbar}>
-                <li>ABOUT</li>
-                <li>GALLERY</li>
-                <li>SHOPPING CART</li>
+                <li><NavLink to="/">HOME</NavLink></li>
+                <li><NavLink to="/about">ABOUT</NavLink></li>
+                <li><NavLink to="/gallery">GALLERY</NavLink></li>
+                <li><NavLink to="/cart">CART</NavLink></li>
            </div>
        );
    }
-
 }
 
 const styles = {
@@ -19,9 +19,12 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
-        height: '43px',
+        height: '33px',
+        fontSize: '13px',
         listStyle: 'none',
         borderTop: '1px solid #ddd',
         borderBottom: '1px solid #ddd',
+        marginTop: '23px',
+        marginBottom: '33px'
     }
 }

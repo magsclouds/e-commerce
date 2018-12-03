@@ -13,8 +13,80 @@ code {
     monospace;
 }
 .container {
-  height: 100vh;
+  /* height: 100vh; */
   width: 80%;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20%;
 }
+ul{
+  list-style: none;
+}
+button {
+  background-color: #407107;
+  border-radius: 23px;
+  border: none;
+  color: white;
+  padding: 9px 60px;
+  text-align: center;
+  display: inline-block;
+  font: 13px;
+}
+button ,input {
+  outline: none;
+}
+
+.title {
+  font-family: 'Oswald';
+  font-weight: 800;
+  font-size: 47px;
+  letter-spacing: -2px;
+  line-height: 47px;
+  text-align: right;
+  color: #780315;
+}
+
+.title span {
+  font-family: 'Oswald';
+  display: block;
+}
+.heading {
+  font-family: 'Oswald';
+  color: #222222;
+  font-size: 21px;
+  letter-spacing: -1px;
+  line-height: 30px;
+}
+.heading span {
+  font-family: 'Oswald';
+  display: block;
+}
+
+*{
+  font-family: 'Lato';
+  font-size: '13px'
+}
+
+p {
+  font-size: 13px;
+  color: #222222;
+  
+}
+
+a {
+  text-decoration: none;
+  color: black
+}
+
+.footer a {
+  color: white
+}
+
+.quote {
+  font-family: 'Nothing You Could Do';
+  font-size: 17px;
+  color: #780315;
+  padding: 69px;
+}
+
 
