@@ -10,6 +10,9 @@ import Cart_Main from './Cart/Cart_Main';
 import Payment from './Checkout/Payment_Succsessfull';
 import Declined from  './Checkout/Payment_Declined';
 import Checkout from './Checkout/Checkout_Form';
+import Login from './Admin/Login';
+import Add_Product from './Admin/Add_Product';
+import Update_Product from './Admin/Update_Product';
 
 class App extends Component {
   render(){
@@ -26,6 +29,9 @@ class App extends Component {
             <Route path = "/payment" component={Payment}/>
             <Route path = "/declined" component={Declined}/>
             <Route path = "/checkout" component={Checkout}/>
+            <Route exact path = "/admin" component={Login}/>
+            <Route exact path = "/admin/add" component={Add_Product}/>
+            <Route exact path = "/admin/update" component={Update_Product}/>
           </div>
         <Footer/>
         </div>

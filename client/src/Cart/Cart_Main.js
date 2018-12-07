@@ -2,6 +2,39 @@ import React from 'react';
 import Cart_Box from './Cart_Box';
 
 export default class Cart_Main extends React.Component {
+
+    state = {
+        cart:[],
+        total:0
+    }
+
+    componentDidMount(){
+        let cart = localStorage.getItem('cart');
+        if(cart){
+            cart = JSON.parse(cart)
+            this.setState({cart})
+        }
+        this.cartTotal();
+    }
+
+    handleDelete = (ID) => {
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        let index = cart.findIndex((ele)=> ele._id === ID)
+        cart.splice(index, 1)
+        localStorage.setItem('cart', JSON.stringify(cart))
+        this.setState({cart})
+        this.cartTotal();
+    }
+    
+    cartTotal = () => {
+        let total = 0
+        let cart = JSON.parse(localStorage.getItem('cart'))
+        cart.map((ele)=>{ 
+            total += Number(ele.price)
+        })
+        this.setState({total})
+    }
+
     render() {
         return(
             <div>
@@ -16,14 +49,16 @@ export default class Cart_Main extends React.Component {
                     </div>
                     <div style={styles.box}>
                         <div>
-                            <Cart_Box/>
+                            <Cart_Box
+                                handleDelete = {this.handleDelete}
+                                product = {this.state.cart}/>
                         </div>
                             <div style = {styles.grid2}>
                                 <div>
                                     <p>SUBTOTAL</p>
                                 </div>
                                 <div>
-                                    <p>$1000</p>
+                                    <p>{this.state.total}</p>
                                 </div>
                                 <div>
                                     {/* empty column */}

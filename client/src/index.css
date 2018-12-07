@@ -30,7 +30,7 @@ button {
   padding: 9px 60px;
   text-align: center;
   display: inline-block;
-  font: 13px;
+  font-size: 10px;
 }
 button ,input {
   outline: none;

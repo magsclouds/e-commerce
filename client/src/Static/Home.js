@@ -2,23 +2,24 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default class Home extends React.Component{
+
     render(){
         return(
             <div>
 
                 <div style = {styles.box}>
-                    <img width='100%' src = 'https://res.cloudinary.com/magsclouds/image/upload/v1543796124/benjamin-davies-361151-unsplash.jpg'/>
-                    {/* <img width='100%' src = 'https://res.cloudinary.com/magsclouds/image/upload/v1543744846/greg-rakozy-38802_cropped.jpg'
-                    alt = 'Greg Rakozy, Universe'/> */}
+                    <img width='100%' src = 'https://res.cloudinary.com/magsclouds/image/upload/v1544135801/dino-reichmuth-147745-unsplash.jpg'/>
                     <div style={styles.text_block}>
                         <p style={styles.text}>
-                        In the beginning God created the heaven and the earth. And the earth was without form, and void; and darkness was upon the face of the deep.
+                        In the beginning God created the heaven and the earth. And the earth was without form (...) and darkness was upon the face of the deep
                         (...) And God said, Let there be light: and there was light.
                         </p>
-                        <button
-                        style={styles.button}
-                        >ILLUMINATE ME
-                        </button>
+                            <NavLink to="/gallery">
+                                <button
+                                style={styles.button}
+                                >ILLUMINATE ME
+                                </button>
+                            </NavLink>
                     </div> 
                 </div>
 
@@ -53,19 +54,21 @@ const styles = {
       },
       text: {
         fontFamily: 'Lato',
-        fontSize: '13px',
+        fontSize: '11px',
         letterSpacing: '1px',
-        lineHeight: '21px',
+        lineHeight: '17px',
         textAlign: 'right',
         color: 'white'
       },
     text_block: {
         position: 'absolute',
-        top: '41px',
-        right: '41px',
+        top: '69px',
+        right: '69px',
         backgroundColor: '#14140C',
+        backgroundBlendMode: 'luminosity',
         paddingLeft: '30px',
         paddingRight: '30px',
+        paddingTop: '30px',
         textAlign: 'right',
         minWidth: '170px',
         maxHeight: '300px'

@@ -1,17 +1,21 @@
 import React from 'react';
 
 export default (props) => {
+    debugger
     return(
         <div>
             <div style = {styles.grid1}>
                 <div>
-                    <p>{props.product.name}</p>
+                    <p>{props.product.productName}</p>
                 </div>
                 <div>
-                    <p>{props.product.price}</p>
+                    <i class="fas fa-bolt"></i><p>{props.product.price}</p>
                 </div>
                 <div>
-                    <p style = {styles.theX}>X</p>
+                    <button
+                    onClick = {()=>props.handleDelete(props.product._id)}
+                    style = {styles.theX}
+                    >X</button>
                 </div>
             </div> 
         </div>
@@ -30,6 +34,7 @@ const styles = {
         fontFamily: 'Nothing You Could Do',
         color: '#BB1A2D',
         fontWeight: '1000',
-        fontSize: '13px'
-    }
+        fontSize: '13px',
+        backgroundColor: 'white'
+    },
 }

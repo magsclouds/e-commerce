@@ -25,7 +25,7 @@ export default class About extends Component{
                     <p>He had seen everything, experienced everything. He was granted vision into the mysteries of the deep, the secret places, the time before the Great Flood. He journeyed to the edge of the world, returning back to us broken but whole.</p>
                 </div>
                     <hr style={styles.line_break}/>
-                <div>
+                {/* <div>
                     <p style={styles.delivery}>DELIVERY INFORMATION</p>
                     <div style={styles.grid_delivery}>
                         <div>
@@ -53,7 +53,7 @@ the deep, the secret places, the time before the Great Flood. He journeyed to th
 world, returning back to us broken but whole.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
             </div>
            
@@ -77,18 +77,7 @@ const styles = {
         marginRight: 'auto',
         textAlign: 'center'
     },
-    grid_delivery:{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr',
-        gridGap: '33px'
-    },
-    delivery:{
-        fontFamily: 'Oswald',
-        fontSize: '21px',
-        color: '#780315',
-        textAlign: 'right',
-        letterSpacing: '2px'
-    },
+   
     line_break:{
         marginTop: '100px',
         marginBottom: '100px'

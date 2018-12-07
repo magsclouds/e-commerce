@@ -6,7 +6,7 @@ export default (props) => (
     <ul style={styles.grid}>
         {
         props.products.map((ele, i)=>{
-            let url = `/gallery/ ${i}`
+            let url = `/gallery/${ele._id}`
             return <NavLink to={url}><li key = {i}><Item product = {ele}/></li></NavLink>
         })
         }

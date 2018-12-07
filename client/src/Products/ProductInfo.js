@@ -1,36 +1,79 @@
 import React from 'react';
 
 export default class ProductInfo extends React.Component{
+
+    state = {}
+    
+    componentDidMount(){
+        let url = `http://localhost:3001/products/${this.props.match.params.product}`;
+        fetch(url).then((res)=>{
+            if(res.ok){
+                res.json().then((resJson)=>{
+                    this.setState({...resJson});
+                }) 
+            }
+        }).catch((err)=>{
+            })
+    }
+    handleDelete = () => {
+        let check = window.confirm('Are you sure? This might end the Universe!!!')
+        if (check === true){
+            let url = `http://localhost:3001/products/delete`
+            fetch(url, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ID:this.state._id})
+            }).then((res)=>{
+                res.json().then((resJson)=>{
+                })
+                if(res.ok){
+                        this.props.history.push('/gallery')
+                }else{
+                    alert('You failed and you are falling into a blac hole!!!')
+                }
+            }).catch((err)=>{
+                }) 
+    }}
+
+    addToCart = () => {
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; //cart = []
+            cart.push(this.state)
+            localStorage.setItem('cart',JSON.stringify(cart))
+            alert('Light is in your cart')
+    }
+  
     render(){
-        let obj = {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770951/nandhu-kumar-414066-unsplash.jpg', name: 'the meduza lamp', desc: 'Working amid the din of printing presses and the smell of damp ink on paper, Smith developed the patience, and keen eye and delicate hand that would later serve him so well in his work with cuneiform tablets. His work also exposed him to a wider world, for Bradbury and Evans had branched out from printing into publishing; they owned the humour magazine Punch and published Dickens and Thackeray in lavishly illustrated editions. in the fall of 1860, the 20-yearold Smith, fascinated by ancient history, began to haunt the Near Eastern collections at the British Museum.', price: '500.00', artist: 'Kornel Makuszynski' }
+        
         return(
             <div>
-
                 <div style={styles.box}>
                     <img 
                     style={styles.img}
-                    src={obj.image}/>
-                    <p style={styles.artist}>{obj.artist}</p>
-                    <p style={styles.price}><i class="fas fa-bolt"></i> {obj.price}</p>
+                    src={this.state.image}/>
+                    <p style={styles.artist}>{this.state.artistName}</p>
+                    <p style={styles.price}><i class="fas fa-bolt"></i> {this.state.price}</p>
                 </div>
                     <hr/>
                  <div style={styles.main}>
                     <div>
-                        <p className='title'>{obj.name}</p>
+                        <p className='title'>{this.state.productName}</p>
                     </div>
                     <div>
-                        <p>{obj.desc}</p>
-                    </div>
-                    
+                        <p>{this.state.productInfo}</p>
+                    </div>  
                 </div>
                 <div style={styles.button}>
-                    <button>ADD TO CART</button>
-                </div>
-                
-            </div>
-           
-        )
-    }
+                    <button onClick={this.addToCart}>ADD TO CART</button>
+                </div> 
+                    <hr style={styles.line_break}/>
+
+                    <div style={styles.adminBox}>
+                        {/* <p>ADMIN AREA</p> */}
+                        <button onClick = {this.handleDelete} style={styles.adminButton}>delete product</button>
+                        <button style={styles.adminButton}>update product</button>
+                    </div> 
+            </div>   
+    )}
 }
 
 const styles = {
@@ -67,8 +110,31 @@ const styles = {
         gridTemplateColumns: '1fr 2fr',
         width: '100%'
     },
+    line_break:{
+        marginTop: '100px',
+        marginBottom: '100px'
+    },
     button:{
         textAlign: 'center',
+    },
+    adminButton:{
+        backgroundColor: '#222222',
+        borderRadius: '3px',
+        border: 'none',
+        color: 'white',
+        padding: '9px 60px',
+        textAlign: 'center',
+        display: 'inline-block',
+        font: '11px'
+    },
+    adminBox:{
+        marginTop: '69px',
+        textAlign: 'center',
+        backgroundColor: '#E5E5E5',
+        padding: '33px',
+        display: 'flex',
+        justifyContent: 'space-around',
+        borderRadius: '3px'
     }
 
 }

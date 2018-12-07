@@ -3,33 +3,87 @@ import List from '../Products/List';
 
 
 export default class Main extends React.Component{
+    state = {
+        products:[]
+    }
+    componentDidMount(){
+        
+        this.getProducts();
+    }
+
+    getProducts = () =>{
+        const url ='http://localhost:3001/products';
+        
+        fetch(url).then((res)=>{
+            
+            res.json().then((resJson)=>{
+                
+            this.setState({products:resJson});
+            })
+        }).catch((err)=>{
+            })
+    }
 
     render(){
-        const products =[
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770943/ahmad-dirini-176494-unsplash.jpg', name: 'product 1', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770944/allen-cai-106401-unsplash.jpg', name: 'product 2', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770944/dil-680602-unsplash.jpg', name: 'product 3', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770944/fancycrave-223082-unsplash.jpg', name: 'product 4', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770944/christopher-alvarenga-1143629-unsplash.jpg', name: 'product 5', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770947/genessa-panainte-184324-unsplash.jpg', name: 'product 6', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770947/jeremy-bishop-93202-unsplash.jpg', name: 'product 7', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770949/jeremy-perkins-333405-unsplash.jpg', name: 'product 8', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770949/kamesh-vedula-59768-unsplash.jpg', name: 'product 9', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770951/nandhu-kumar-414066-unsplash.jpg', name: 'product 1', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770952/paul-green-126960-unsplash.jpg', name: 'product 7', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770953/sebastian-kanczok-199612-unsplash.jpg', name: 'product 8', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770954/thomas-lipke-1178300-unsplash.jpg', name: 'product 9', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770952/pratham-gupta-419799-unsplash.jpg', name: 'product 9', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' },
-            {image: 'https://res.cloudinary.com/magsclouds/image/upload/v1543770949/joshua-earle-133254-unsplash.jpg', name: 'product 9', desc: 'product description with multiple lines', price: '$ 500.00', artist: 'artist name' }
-        ]
         return(
             <div>
                 <div>
-                    <List products ={products}/>
-                </div> 
+                    <List products ={this.state.products}/>
+                </div>
+                    <hr style={styles.line_break}/>
+                <div>
+                    <p style={styles.delivery}>DELIVERY INFORMATION</p>
+                    <div style={styles.grid_delivery}>
+                        <div>
+                            <p>SUPERSONIC</p>
+                            <p>Between George's first and second expeditions to Iraq, a new Pasha had been installed in
+Baghdad, and unlike his predecessor, took a strong and suspicious interest in Smith’s work – a
+suspicion only increased, to George's surprise, by familiarity with European culture. The Pasha
+was emboldened after learning that George was not, in fact, an agent of the British government
+at all but only a newspaper correspondent. After his identity was revealed, George wrote in
+fear: "he might do as he liked with me.”</p>
+                        </div>
+                        <div>
+                            <p>SPEED OF LIGHT</p>
+                            <p>December 1853, Ancient Ruins of Nineveh. Archaeological mounds outside of Mosul, northern
+Iraq. Unbeknownst to them, Austin Henry Layard and Hormuzd Rassam stand atop the ruins of
+ancient Nineveh. They have just discovered the Great Library of Ashurbanipal. Among the
+30,000 tablets included in their excavations is Tablet XI of the Epic of Gilgamesh. The tablets are
+shipped back to the British Museum in London, where they are catalogued, stored, and put on
+display for the first time in almost three thousand years.</p>
+                        </div>
+                        <div>
+                            <p>BLACK HOLE</p>
+                            <p>He had seen everything, experienced everything. He was granted vision into the mysteries of
+the deep, the secret places, the time before the Great Flood. He journeyed to the edge of the
+world, returning back to us broken but whole.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
 
     }
     
 }
+
+const styles = {
+    grid_delivery:{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr 1fr',
+        gridGap: '33px'
+    },
+    delivery:{
+        fontFamily: 'Oswald',
+        fontSize: '21px',
+        color: '#780315',
+        textAlign: 'right',
+        letterSpacing: '2px'
+    },
+    line_break:{
+        marginTop: '100px',
+        marginBottom: '100px'
+    }
+
+}
+

@@ -9,6 +9,7 @@ export default class Navbar extends Component{
                 <li><NavLink to="/about">ABOUT</NavLink></li>
                 <li><NavLink to="/gallery">GALLERY</NavLink></li>
                 <li><NavLink to="/cart">CART</NavLink></li>
+                <li><NavLink to="/admin/add">ADD</NavLink></li>
            </div>
        );
    }
@@ -26,5 +27,5 @@ const styles = {
         borderBottom: '1px solid #ddd',
         marginTop: '23px',
         marginBottom: '33px'
-    }
+    },
 }

@@ -2,14 +2,44 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 export default class Footer extends Component{
+
+    componentDidMount(){
+        let token = localStorage.getItem('token')
+        let url = 'http://localhost:3001/users/secret'
+        fetch(url,{
+            method: 'GET',
+            headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            Authorization:token
+            }
+        })
+        .then((res)=>{
+          res.json().then((resJson)=>{
+            
+          })
+        }).catch((e)=>{
+          
+        })
+    }
+
+    handleLogout = () => {
+        localStorage.removeItem('token');
+        alert('you are logged out')
+    }
+
     render(){
         return(
             <div style={styles.main}>
                 <div>
                     <ul style={styles.footerLeft}>
-                        <li>CREATED BY <i class="far fa-copyright"></i> Maggie Rose</li>
+                        <li>CREATED BY <i class="far fa-copyright"></i> maggiestrips</li>
                         <li>COLLABORATION</li>
                         <li>PORTFOLIO</li>
+                        <button
+                        onClick={this.handleLogout}
+                        style={styles.adminButton}
+                        >LOGOUT</button>
                     </ul>
                 </div>
                 <div>
@@ -70,5 +100,13 @@ const styles = {
         width: '100%',
         minWidth: '500px'
     },
+    adminButton:{
+        border: 'none',
+        color: 'white',
+        padding: '0px',
+        textAlign: 'left',
+        fontSize: '11px',
+        backgroundColor: '#14140C'
+    }
     
 }
