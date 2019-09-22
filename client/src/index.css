@@ -1,4 +1,4 @@
-body {
+body{
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -7,86 +7,100 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
+code{
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-.container {
-  /* height: 100vh; */
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20%;
-}
-ul{
-  list-style: none;
+
+a{
+  color: black;
+  text-decoration: none;
 }
 button {
   background-color: #407107;
   border-radius: 23px;
   border: none;
   color: white;
-  padding: 9px 60px;
-  text-align: center;
   display: inline-block;
   font-size: 10px;
+  padding: 9px 60px;
+  text-align: center; 
 }
 button ,input {
   outline: none;
 }
-
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20%;
+}
+.footer a {
+  color: white
+}
+.heading {
+  font-family: 'Oswald';
+  color: #14140C;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  font-variant-caps: all-small-caps;
+}
+.headingWhite {
+  font-family: 'Oswald';
+  color: white;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  line-height: 1.5em;
+  font-variant-caps: all-small-caps;
+}
+hr{ 
+  height: 1px;
+  background-color:#fc461e; 
+  border: none;
+}
+h6{
+  color: #fc461e;
+}
+p{
+  color: #14140C;
+  font-size: 0.8em;
+  font-weight: 100;
+  letter-spacing: 0.09em;
+  line-height: 1.7em;
+}
+.quote {
+  font-family: 'Lato';
+  font-size: 0.7em;
+  color: #fc461e;
+  margin-left: '2em';
+  margin-right: '2em';
+}
 .title {
   font-family: 'Oswald';
-  font-weight: 800;
-  font-size: 47px;
-  letter-spacing: -2px;
-  line-height: 47px;
+  font-size: 69px;
+  letter-spacing: -1px;
+  line-height: 69px;
   text-align: right;
-  color: #780315;
+  color: #fc461e;
 }
-
 .title span {
   font-family: 'Oswald';
   display: block;
 }
-.heading {
-  font-family: 'Oswald';
-  color: #222222;
-  font-size: 21px;
-  letter-spacing: -1px;
-  line-height: 30px;
-}
-.heading span {
-  font-family: 'Oswald';
-  display: block;
+ul{
+  list-style: none;
 }
 
-*{
-  font-family: 'Lato';
-  font-size: '13px'
-}
 
-p {
-  font-size: 13px;
-  color: #222222;
-  
-}
 
-a {
-  text-decoration: none;
-  color: black
-}
 
-.footer a {
-  color: white
-}
 
-.quote {
-  font-family: 'Nothing You Could Do';
-  font-size: 17px;
-  color: #780315;
-  padding: 69px;
-}
+
+
+
+
+
+
 
 

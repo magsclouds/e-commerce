@@ -7,17 +7,13 @@ export default class Main extends React.Component{
         products:[]
     }
     componentDidMount(){
-        
         this.getProducts();
     }
 
     getProducts = () =>{
         const url ='http://localhost:3001/products';
-        
         fetch(url).then((res)=>{
-            
             res.json().then((resJson)=>{
-                
             this.setState({products:resJson});
             })
         }).catch((err)=>{
@@ -30,60 +26,88 @@ export default class Main extends React.Component{
                 <div>
                     <List products ={this.state.products}/>
                 </div>
-                    <hr style={styles.line_break}/>
-                <div>
-                    <p style={styles.delivery}>DELIVERY INFORMATION</p>
+                    
+                <div style={styles.box}>
+                    <p style={styles.delivery}>
+                    DELIVERY INFORMATION
+                    </p>
                     <div style={styles.grid_delivery}>
                         <div>
-                            <p>SUPERSONIC</p>
-                            <p>Between George's first and second expeditions to Iraq, a new Pasha had been installed in
-Baghdad, and unlike his predecessor, took a strong and suspicious interest in Smith’s work – a
-suspicion only increased, to George's surprise, by familiarity with European culture. The Pasha
-was emboldened after learning that George was not, in fact, an agent of the British government
-at all but only a newspaper correspondent. After his identity was revealed, George wrote in
-fear: "he might do as he liked with me.”</p>
+                            {/* empty column */}
                         </div>
                         <div>
-                            <p>SPEED OF LIGHT</p>
-                            <p>December 1853, Ancient Ruins of Nineveh. Archaeological mounds outside of Mosul, northern
-Iraq. Unbeknownst to them, Austin Henry Layard and Hormuzd Rassam stand atop the ruins of
-ancient Nineveh. They have just discovered the Great Library of Ashurbanipal. Among the
-30,000 tablets included in their excavations is Tablet XI of the Epic of Gilgamesh. The tablets are
-shipped back to the British Museum in London, where they are catalogued, stored, and put on
-display for the first time in almost three thousand years.</p>
+                            <p className='headingWhite'>
+                            WORMHOLE
+                            </p>
+                                <hr/>
+                            <p style={styles.deliveryP}>
+                           Instant delivery through a wormhole. The intergalactic shortcut. A tunnel through space-time that allows intrepid travelers to hop from star system to star system without ever coming close to the speed of light.
+                            </p>
                         </div>
                         <div>
-                            <p>BLACK HOLE</p>
-                            <p>He had seen everything, experienced everything. He was granted vision into the mysteries of
-the deep, the secret places, the time before the Great Flood. He journeyed to the edge of the
-world, returning back to us broken but whole.</p>
+                            <p className='headingWhite'>
+                            SPEED OF LIGHT
+                            </p>
+                                <hr/>
+                            <p style={styles.deliveryP}>
+                            A parcel traveling at the speed of light would experience a slowing of time. For that parcel, time would move slower than for someone who is waiting for it. When an object travels at the speed of light, its mass will increase exponentially, hence the higher delivery cost...
+                            </p>
+                        </div>
+                        <div>
+                            <p className='headingWhite'>
+                            BLACK HOLE
+                            </p>
+                                <hr/>
+                            <p style={styles.deliveryP}>
+                            A black hole has a boundary, called the event horizon. It is where gravity is just strong enough to drag light back, and prevent it escaping. Because nothing can travel faster than light, everything else will get dragged back also. Once your parcel falls over the edge of the event horison we will be unable to track it.
+                            </p>
+                        </div>
+                        <div>
+                            {/* empty column */}
                         </div>
                     </div>
                 </div>
-            </div>
-        );
 
-    }
-    
-}
+            </div>
+)}}
 
 const styles = {
     grid_delivery:{
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr 1fr',
+        gridTemplateColumns: '1fr 3fr 3fr 3fr 1fr',
         gridGap: '33px'
+    
     },
     delivery:{
-        fontFamily: 'Oswald',
-        fontSize: '21px',
-        color: '#780315',
-        textAlign: 'right',
-        letterSpacing: '2px'
+        fontFamily: 'Lato',
+        fontSize: '1.5em',
+        color: '#fc461e',
+        textAlign: 'center',
+        letterSpacing: '0.7em',
+    },
+    deliveryP:{
+        color: 'white',
+        fontSize: '0.6em'
     },
     line_break:{
-        marginTop: '100px',
-        marginBottom: '100px'
-    }
+        marginTop: '3em',
+        marginBottom: '3em',
+    },
+    back_box:{
+        paddingLeft: '5em',
+        paddingRight: '5em',
+        paddingTop: '1em',
+        paddingBottom: '1em',
+        minWidth: '43em'
+    },
+    box:{
+        backgroundColor: '#14140C',
+        border: 'none',
+        marginTop: '7em',
+        width: '100%',
+        textAlign: 'center',
+    },
+
 
 }
 

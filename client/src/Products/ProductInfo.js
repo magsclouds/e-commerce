@@ -51,21 +51,26 @@ export default class ProductInfo extends React.Component{
                     style={styles.img}
                     src={this.state.image}/>
                     <p style={styles.artist}>{this.state.artistName}</p>
-                    <p style={styles.price}><i class="fas fa-bolt"></i> {this.state.price}</p>
+                    <p style={styles.price}>price:  <i class="fas fa-bolt"></i> {this.state.price}</p>
                 </div>
-                    <hr/>
-                 <div style={styles.main}>
-                    <div>
-                        <p className='title'>{this.state.productName}</p>
+                <div style={styles.back_box}>
+                    <div style={styles.grid}>
+                        <div>
+                            <p className='title'>{this.state.productName}</p>
+                        </div>
+                        <div>
+                            <hr/>
+                            <p>{this.state.productInfo}</p>
+                        </div>
+                        <div>
+                            {/* empty column */}
+                        </div>  
                     </div>
-                    <div>
-                        <p>{this.state.productInfo}</p>
-                    </div>  
-                </div>
+                </div>    
                 <div style={styles.button}>
                     <button onClick={this.addToCart}>ADD TO CART</button>
                 </div> 
-                    <hr style={styles.line_break}/>
+                    {/* <hr style={styles.line_break}/> */}
 
                     <div style={styles.adminBox}>
                         {/* <p>ADMIN AREA</p> */}
@@ -90,7 +95,7 @@ const styles = {
     },
     artist:{
         fontFamily: 'Nothing You Could Do',
-        color: '#BB1A2D',
+        color: '#fc461e',
         fontWeight: '1000',
         fontSize: '17px',
         padding: '10px'
@@ -102,12 +107,12 @@ const styles = {
         padding: '10px'
         
     },
-    main:{
+    grid:{
         marginTop: '33px',
         marginBottom: '33px',
         display: 'grid',
         gridGap: '23px',
-        gridTemplateColumns: '1fr 2fr',
+        gridTemplateColumns: '3fr 6fr 1fr ',
         width: '100%'
     },
     line_break:{
@@ -126,6 +131,13 @@ const styles = {
         textAlign: 'center',
         display: 'inline-block',
         font: '11px'
+    },
+      back_box:{
+        paddingLeft: '5em',
+        paddingRight: '5em',
+        paddingTop: '1em',
+        paddingBottom: '1em',
+        minWidth: '43em'
     },
     adminBox:{
         marginTop: '69px',

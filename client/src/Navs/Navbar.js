@@ -26,6 +26,6 @@ const styles = {
         borderTop: '1px solid #ddd',
         borderBottom: '1px solid #ddd',
         marginTop: '23px',
-        marginBottom: '33px'
+        marginBottom: '33px',
     },
 }
