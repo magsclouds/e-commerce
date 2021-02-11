@@ -1,4 +1,4 @@
-# Light
+# e-commerce
 
 An e-commerce store with admin login.
 
